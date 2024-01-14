@@ -1,5 +1,5 @@
 #include <iostream>
-#include <math.h>
+#include <cmath>
 
 int main(int argc, char * argv[]) {
     double d0 = 4, d1 = 7;
