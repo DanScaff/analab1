@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cmath>
+#include <math.h>
 
 #define N_LENGTH 5
 #define X_LENGTH 4
