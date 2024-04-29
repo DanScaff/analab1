@@ -4,21 +4,21 @@
 #define N_LENGTH 5
 #define X_LENGTH 4
 
-double factorial(double);
-double taylor(double, double);
-double absErrCalc(double, double);
-double relErrCalc(double, double);
+long double factorial(long double);
+long double taylor(long double, long double);
+long double absErrCalc(long double, long double);
+long double relErrCalc(long double, long double);
 
 int main(int argc, char * argv[]) {
 
     const int N[N_LENGTH] = {3, 10, 50, 100, 150};
-    const double x[X_LENGTH] = {0.5, 30, -0.5, -30};
+    const long double x[X_LENGTH] = {0.5, 30, -0.5, -30};
     
-    double rStandard[X_LENGTH]; //array contente i risultati ottenuti con la funzione exp(x) di cmath
-    double rTaylor[N_LENGTH][X_LENGTH];
+    long double rStandard[X_LENGTH]; //array contente i risultati ottenuti con la funzione exp(x) di cmath
+    long double rTaylor[N_LENGTH][X_LENGTH];
 
-    double absErr[N_LENGTH][X_LENGTH];
-    double relErr[N_LENGTH][X_LENGTH];
+    long double absErr[N_LENGTH][X_LENGTH];
+    long double relErr[N_LENGTH][X_LENGTH];
 
     for(int i = 0 ; i < X_LENGTH; i++) {
         rStandard[i] = exp(x[i]);
@@ -63,22 +63,22 @@ int main(int argc, char * argv[]) {
     return 0;
 }
 
-double factorial(double n) {
+long double factorial(long double n) {
     return (n == 1 || n == 0) ? 1 : factorial(n - 1) * n;
 }
 
-double taylor(double N, double x) {
-    double res = 0;
+long double taylor(long double N, long double x) {
+    long double res = 0;
     for(int n = 0 ; n <= N ; n++) {
         res += pow(x, n) / factorial(n);
     }
     return res;
 }
 
-double absErrCalc(double obtained, double expected){
+long double absErrCalc(long double obtained, long double expected){
     return abs(obtained - expected);
 }
 
-double relErrCalc(double obtained, double expected){
+long double relErrCalc(long double obtained, long double expected){
     return abs(absErrCalc(obtained, expected) / expected);
 }
